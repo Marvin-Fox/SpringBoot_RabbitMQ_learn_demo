@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rabbitMQ_provider</artifactId>
+    <artifactId>rabbitMQ_consumer</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>rabbitMQ_provider</name>
+    <name>rabbitMQ_consumer</name>
 
     <dependencies>
         <dependency>

@@ -1,14 +1,17 @@
 package com.marvin.demo.entity;
 
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 
-@Component
 public class UserBean implements Serializable {
     private Integer id;
     private String username;
     private String pwd;
+
+    public UserBean(Integer id, String username, String pwd) {
+        this.id = id;
+        this.username = username;
+        this.pwd = pwd;
+    }
 
     public Integer getId() {
         return id;
