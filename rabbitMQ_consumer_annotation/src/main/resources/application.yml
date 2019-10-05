@@ -9,6 +9,7 @@ spring:
     virtual-host: /spring_cloud
 #    若使用confirm-callback或return-callback，必须要配置publisherConfirms或publisherReturns为true
     publisher-confirms: true
+    publisher-returns: true
 
 server:
   port: 8002

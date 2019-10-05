@@ -31,7 +31,11 @@ com.marvin.demo.config--》RabbitConfig
 目的：通过全注解方式来创建和绑定MQ关系
 
 此model包含了junit测试：<br>
-测试中写了消息生产来验证消费者是否会按预计消费（测试方法：先将这个model的springboot跑起来，在执行junit）
+测试中写了消息生产来验证消费者是否会按预计消费（测试方法：先将这个model的springboot跑起来，在执行junit）<br>
+TestSend_ConfirmCallback_ReturnCallback【消息发送确认机制】<br>
+TestSendDirect【路由模式】<br>
+TestSendFanout【发布订阅模式】<br>
+TestSendTopic【主题模式】<br>
 
 
 ## rabbitMQ_provider
