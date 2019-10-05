@@ -9,10 +9,11 @@ springBoot整合rabbitMQ，包含生产者和消费者
 
 
 ## 项目结构：
-- rabbitMQ_consumer_annotation：消费者（使用注解方式 @RabbitListener在消费类上声明创建Queue\Exchange,和绑定关系）
+- rabbitMQ_consumer_annotation：消费者（使用注解方式 @RabbitListener在消费类上声明创建Queue\Exchange,和绑定关系）自包含Junit测试类，可单独测试
 - rabbitMQ_consumer_config：消费者(使用config类通过@Bean来在启动时向MQ服务器创建Queue\Exchange,和绑定关系)
 - rabbitMQ_model：声明实体pojo对象，被其他引用，作为消息数据传递
-- rabbitMQ_provider：生产者
+- rabbitMQ_provider：生产者（为了模拟真实场景，在MVC中生产消息，rabbitMQ_consumer_config是这个的消费者）
+- rabbitMQ_RabbitAdmin：使用RabbitAdmin来管理和创建Queue\Exchange\RoutingKey(单独为了学习RabbitAdmin创建，可单独自运行junit)
 
 
 ## rabbitMQ_consumer_config
@@ -34,4 +35,4 @@ com.marvin.demo.config--》RabbitConfig
 
 
 ## rabbitMQ_provider
-消息生产者，通过mvc的请求来生产消息
+消息生产者，模拟真实场景通过mvc的请求来生产消息，目标是发送给rabbitMQ_consumer_config监听接收

@@ -1,12 +1,11 @@
 package com.marvin.demo.consumer;
 
 import com.alibaba.fastjson.JSON;
+import com.marvin.demo.entity.UserBean;
 import com.marvin.demo.request.UserRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.annotation.Exchange;
-import org.springframework.amqp.rabbit.annotation.Queue;
-import org.springframework.amqp.rabbit.annotation.QueueBinding;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class ConsumerDirect {
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "${learn_annotation_DirectQueue1}"),
-            exchange = @Exchange(value = "${learn_annotation_DirectExchange}",type = "direct"),
+            exchange = @Exchange(value = "${learn_annotation_DirectExchange}",type = ExchangeTypes.DIRECT),
             key = "direct1"
         )
     )
@@ -36,7 +35,7 @@ public class ConsumerDirect {
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "${learn_annotation_DirectQueue2}"),
-            exchange = @Exchange(value = "${learn_annotation_DirectExchange}",type = "direct"),
+            exchange = @Exchange(value = "${learn_annotation_DirectExchange}",type = ExchangeTypes.DIRECT),
             key = "direct2"
         )
     )
@@ -48,6 +47,26 @@ public class ConsumerDirect {
         System.out.println("ConsumerDirect Object2 UserRequest:"+userRequest.toString());
         System.out.println("ConsumerDirect Object2 UserBean:"+userRequest.getContent().toString());
     }
+
+
+    /**
+     * 使用convertAndSend传参时会自动序列化
+     * 监听接值的方法参数一定要一致才会自动转换
+     * @param userBean
+     */
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "${learn_annotation_DirectQueue3}"),
+            exchange = @Exchange(value = "${learn_annotation_DirectExchange}",type = ExchangeTypes.DIRECT),
+            key = "direct3"
+    ))
+    public void processDirect3(UserBean userBean){
+        log.info("enter ConsumerDirect-->processDirect3()~~~~~~~~~~~~~~~~~~~");
+        //接收参数自动转换反序列化
+        System.out.println("ConsumerDirect queue3 msg:"+userBean);
+        System.out.println("ConsumerDirect Object3 UserBean:"+userBean.toString());
+    }
+
+
 
 
 }

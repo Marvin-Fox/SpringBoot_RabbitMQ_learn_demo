@@ -46,6 +46,16 @@ public class TestSendDirect {
     }
 
 
+    /**
+     * 直接使用convertAndSend，会序列化对象，在接值的一方参数类型一定要一致
+     */
+    @Test
+    public void testDirect3() {
+        UserBean userBean=new UserBean(3,"cc","cc");
+        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct3",userBean);
+    }
+
+
 
 
 

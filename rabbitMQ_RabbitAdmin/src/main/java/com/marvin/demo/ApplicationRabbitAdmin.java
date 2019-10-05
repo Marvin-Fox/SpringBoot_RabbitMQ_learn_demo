@@ -4,8 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationConsumer {
+public class ApplicationRabbitAdmin {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationConsumer.class);
+        SpringApplication.run(ApplicationRabbitAdmin.class);
     }
+
 }

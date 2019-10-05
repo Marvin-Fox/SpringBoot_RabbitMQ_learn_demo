@@ -12,6 +12,7 @@
         <module>rabbitMQ_provider</module>
         <module>rabbitMQ_consumer_config</module>
         <module>rabbitMQ_consumer_annotation</module>
+        <module>rabbitMQ_RabbitAdmin</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringBoot_RabbitMQ_learn_demo</name>
