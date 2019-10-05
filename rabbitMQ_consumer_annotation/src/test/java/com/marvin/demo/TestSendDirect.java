@@ -21,17 +21,14 @@ public class TestSendDirect {
     }
     @Test
     public void testDirect1() {
-//        amqpTemplate.convertAndSend("learn.direct.exchange","test",new UserBean(1,"aa","aa"));
         UserBean userBean=new UserBean(1,"aa","aa");
-//        String msg= JSON.toJSONString(userBean);
-//        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct1",msg);
 
-        JSONObject json=new JSONObject();
-        json.put("type","junitTest");
-        json.put("status","success");
-        json.put("desc","direct1");
-        json.put("content",userBean);
-        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct1",json.toJSONString());
+        JSONObject msg=new JSONObject();
+        msg.put("type","junitTest");
+        msg.put("status","success");
+        msg.put("desc","direct1");
+        msg.put("content",userBean);
+        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct1",msg.toJSONString());
     }
 
 
@@ -39,14 +36,13 @@ public class TestSendDirect {
     @Test
     public void testDirect2() {
         UserBean userBean=new UserBean(2,"bb","bb");
-//        String msg= JSON.toJSONString(userBean);
-//        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct2",msg);
-        JSONObject json=new JSONObject();
-        json.put("type","junitTest");
-        json.put("status","success");
-        json.put("desc","direct2");
-        json.put("content",userBean);
-        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct2",json.toJSONString());
+
+        JSONObject msg=new JSONObject();
+        msg.put("type","junitTest");
+        msg.put("status","success");
+        msg.put("desc","direct2");
+        msg.put("content",userBean);
+        amqpTemplate.convertAndSend("learn_annotation_DirectExchange","direct2",msg.toJSONString());
     }
 
 
