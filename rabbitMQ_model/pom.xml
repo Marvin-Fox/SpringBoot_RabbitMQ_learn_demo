@@ -15,4 +15,18 @@
     <name>rabbitMQ_model</name>
 
 
+    <build>
+        <plugins>
+            <!--这是被引用的model，所以需要去掉boot配置, 添加<skip>true</skip>-->
+            <!--否则打的包结构有问题，会包含BOOT-INF，导致其他引用打包时会报错找不到-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
