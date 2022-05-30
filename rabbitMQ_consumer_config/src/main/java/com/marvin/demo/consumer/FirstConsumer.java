@@ -55,5 +55,10 @@ public class FirstConsumer {
 //        System.out.println("FirstConsumer queue msg:"+userBean.getUsername());
 //    }
 
+//    @RabbitHandler(isDefault = true)
+//    public void process(Object o){
+//        log.error("MQ消费者 --> 兜底方法 --> {}", o);
+//    }
+
 
 }

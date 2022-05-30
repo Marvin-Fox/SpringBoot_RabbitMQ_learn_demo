@@ -1,0 +1,35 @@
+server:
+  port: 8003
+
+
+spring:
+  application:
+    name: rabbitMQ_annotation_full
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: 123456
+    virtual-host: /spring_cloud
+    #确保生产者消息能到达MQ服务【若使用 confirm-callback 或 return-callback，必须要配置 publisher-confirms 或 publisher-returns 为 true】
+    #是否启用【发布确认】
+    publisher-confirms: true
+    #是否启用【发布返回】
+    publisher-returns: true
+    #消费者监听配置
+    listener:
+      simple:
+        #ack模式（none：不确认【默认】；auto：自动确认模式；manual：手动确认模式）
+        acknowledge-mode: manual
+        #消息重试机制
+        retry:
+          #监听重试是否可用
+          enabled: true
+          #最大重试次数
+          max-attempts: 5
+          #传递消息的时间间隔 默认1s
+          initial-interval: 2s
+        #消息被拒绝（未消费）重新放入队列
+        default-requeue-rejected: true
+#        prefetch: 1
+

@@ -9,6 +9,7 @@ springBoot整合rabbitMQ，包含生产者和消费者
 
 
 ## 项目结构：
+- rabbitMQ_annotation_full：springboot使用注解方式来完成一套完整的消息发送接收流程【包含配置、异常回调（保证消息发送完整性）、手动ACK（保证消息消费完整性）、消息发送、消息监听】 （@RabbitListener在消费类上声明创建Queue\Exchange,和绑定关系）自包含Junit测试类，可单独测试
 - rabbitMQ_consumer_annotation：消费者（使用注解方式 @RabbitListener在消费类上声明创建Queue\Exchange,和绑定关系）自包含Junit测试类，可单独测试
 - rabbitMQ_consumer_config：消费者(使用config类通过@Bean来在启动时向MQ服务器创建Queue\Exchange,和绑定关系)
 - rabbitMQ_model：声明实体pojo对象，被其他引用，作为消息数据传递

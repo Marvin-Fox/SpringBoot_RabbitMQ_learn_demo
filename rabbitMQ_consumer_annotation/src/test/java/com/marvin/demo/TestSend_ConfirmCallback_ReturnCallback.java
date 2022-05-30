@@ -73,7 +73,7 @@ public class TestSend_ConfirmCallback_ReturnCallback {
             //失败则进行具体的后续操作:重试 或者补偿等手段。。。
 
             System.out.println("returnCallback消息主体 message : "+message);
-            System.out.println("returnCallback消息主体 message : "+replyCode);
+            System.out.println("returnCallback消息回调 code replyCode : "+replyCode);
             System.out.println("returnCallback描述："+replyText);
             System.out.println("returnCallback消息使用的交换器 exchange : "+exchange);
             System.out.println("returnCallback消息使用的路由键 routing : "+routingKey);

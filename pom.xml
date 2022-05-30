@@ -13,6 +13,7 @@
         <module>rabbitMQ_consumer_config</module>
         <module>rabbitMQ_consumer_annotation</module>
         <module>rabbitMQ_RabbitAdmin</module>
+        <module>rabbitMQ_annotation_full</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringBoot_RabbitMQ_learn_demo</name>
