@@ -14,6 +14,7 @@
         <module>rabbitMQ_consumer_annotation</module>
         <module>rabbitMQ_RabbitAdmin</module>
         <module>rabbitMQ_annotation_full</module>
+        <module>rabbitMQ_annotation_delay_message</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringBoot_RabbitMQ_learn_demo</name>
