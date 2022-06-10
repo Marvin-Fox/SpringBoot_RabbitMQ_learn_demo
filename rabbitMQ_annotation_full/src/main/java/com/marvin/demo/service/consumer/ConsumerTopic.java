@@ -1,7 +1,5 @@
 package com.marvin.demo.service.consumer;
 
-import com.alibaba.fastjson.JSON;
-//import com.marvin.demo.request.UserRequestModel;
 import com.marvin.demo.entity.UserBean;
 import com.marvin.demo.model.UserRequestModel;
 import com.rabbitmq.client.Channel;
@@ -20,7 +18,10 @@ import org.springframework.util.ObjectUtils;
 import java.io.IOException;
 
 /**
- * topic模式消费者（手动ack模式下需要明文代码channel.basicAck(long deliveryTag, boolean multiple) throws IOException;）
+ * topic模式消费者【验证ack模式】
+ * 【手动ack模式】需要明文代码channel.basicAck(long deliveryTag, boolean multiple) throws IOException;
+ * 【自动ack模式】依据消息消费者的 处理业务逻辑是否抛出异常 自动发送【ack（无异常）、 nack（异常）】到 server 端
+ *
  *
  * 注意topic模式，routingKey只能用“.”点来分隔【单词】,使用#或者*，进行模糊匹配路由
  * 重点：模糊匹配是按【单词】算的，“.”点是来分隔【单词】的，而不是字符，点之间的都被定义为一个【单词】
